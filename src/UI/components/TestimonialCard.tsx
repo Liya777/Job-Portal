@@ -8,7 +8,7 @@ import palette from "../Modules/Utils/theme/palette";
 
 const TestimonialCard = () => {
   return (
-    <Card sx={{ display: "flex", width: "500px" }}>
+    <Card sx={{ display: "flex", width: "545px" }}>
       <CardMedia
         component="img"
         sx={{ width: 151 }}
