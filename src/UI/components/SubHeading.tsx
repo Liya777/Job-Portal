@@ -3,7 +3,7 @@ import FilterList from "@mui/icons-material/FilterList";
 import palette from "../Modules/Utils/theme/palette";
 
 type SubHeadingProps = {
-  text: String;
+  text?: String;
   style?: SxProps<Theme>;
   subText?: String;
 };

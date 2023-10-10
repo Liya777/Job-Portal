@@ -1,6 +1,3 @@
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import palette from "../Utils/theme/palette";
@@ -9,31 +6,13 @@ import Breakpoint from "../Utils/theme/breakpoint";
 import { Box, Grid } from "@mui/material";
 import SubHeading from "../../components/SubHeading";
 import TestimonialCard from "../../components/TestimonialCard";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <>
-      <AppBar
-        position="static"
-        color="transparent"
-        sx={{
-          backgroundColor: palette.palette.primary.main,
-          position: "sticky",
-          zIndex: 1,
-        }}
-      >
-        <Toolbar sx={{ color: "white" }}>
-          <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            JOB PORTAL
-          </Typography>
-          <Button sx={{ color: palette.palette.common.white }}>Home</Button>
-          <Button sx={{ color: palette.palette.common.white }}>Job</Button>
-          <Button sx={{ color: palette.palette.common.white }}>About</Button>
-          <Button sx={{ color: palette.palette.common.white }}>Contacts</Button>
-          <Button sx={{ color: palette.palette.common.white }}>SignUp</Button>
-          <Button sx={{ color: palette.palette.common.white }}>Login</Button>
-        </Toolbar>
-      </AppBar>
       {/* ------------------------- cover ------------------------- */}
       <video id="background-video" loop autoPlay muted width="100%">
         <source src={require("../../Assets/handshake.mp4")} />
@@ -68,6 +47,47 @@ const Home = () => {
           [Breakpoint.breakpoints.down("xl")]: { mx: "100px" },
         }}
       >
+        {/* ------------------------- sign up  ------------------------- */}
+        <SubHeading text="SIGN UP" subText="JOB" style={{ mt: "140px" }} />
+
+        <Typography sx={{ textAlign: "center", mb: 7 }}>
+          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud dolore magna magna
+          aliqua. Ut enim ad minim
+        </Typography>
+        <Grid container sx={{ justifyContent: "space-evenly" }}>
+          <Grid item>
+            <Button
+              onClick={() => navigate("/signup-employer/personal-details")}
+              variant="contained"
+              sx={{
+                alignItems: "center",
+                backgroundColor: palette.palette.secondary.main,
+                ":hover": {
+                  backgroundColor: palette.palette.primary.main,
+                },
+              }}
+            >
+              SIGN UP AS EMPLOYER
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button
+              onClick={() => navigate("/signup-employee/personal-details")}
+              variant="contained"
+              sx={{
+                alignItems: "center",
+                backgroundColor: palette.palette.secondary.main,
+                ":hover": {
+                  backgroundColor: palette.palette.primary.main,
+                },
+              }}
+            >
+              SIGN UP AS EMPLOYEE
+            </Button>
+          </Grid>
+        </Grid>
+        {/* ------------------------- sign up  ------------------------- */}
         {/* ------------------------- featured job ------------------------- */}
         <SubHeading text="featured" subText="JOB" style={{ mt: "140px" }} />
         <Box
@@ -112,6 +132,9 @@ const Home = () => {
             sx={{
               alignItems: "center",
               backgroundColor: palette.palette.secondary.main,
+              ":hover": {
+                backgroundColor: palette.palette.primary.main,
+              },
             }}
           >
             VIEW JOBS
@@ -175,6 +198,9 @@ const Home = () => {
             sx={{
               alignItems: "center",
               backgroundColor: palette.palette.secondary.main,
+              ":hover": {
+                backgroundColor: palette.palette.primary.main,
+              },
             }}
           >
             contact us

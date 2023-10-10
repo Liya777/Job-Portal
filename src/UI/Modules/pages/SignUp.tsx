@@ -1,9 +1,9 @@
-import { Box, Button, Grid, Input, Link, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import palette from "../Utils/theme/palette";
 import LockPersonIcon from "@mui/icons-material/LockPerson";
-import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const SignUp = () => {
   const navigate = useNavigate();
 
   return (
@@ -11,7 +11,7 @@ const Login = () => {
       <Grid item lg={6}>
         <img
           src={require(`../../Assets/login.webp`)}
-          alt="login"
+          alt="signup"
           style={{ width: "100%", height: "100%" }}
         />
       </Grid>
@@ -46,7 +46,6 @@ const Login = () => {
             border: "2px solid",
             borderColor: palette.palette.primary.main,
             borderRadius: 4,
-            height: 400,
             width: 450,
             m: 2,
             p: 4,
@@ -59,55 +58,56 @@ const Login = () => {
               fontWeight: 500,
             }}
           >
-            LOG IN
+            SIGN UP
           </Typography>
-          <Input
-            placeholder="Username"
-            sx={{
-              width: "100%",
-              my: 5,
-            }}
-          />
-          <Input placeholder="Password" sx={{ width: "100%" }} />
-          <Button
-            variant="contained"
-            size="large"
-            sx={{
-              alignItems: "center",
-              backgroundColor: palette.palette.primary.main,
-              width: "100%",
-              my: 7,
-              ":hover": {
-                backgroundColor: palette.palette.secondary.main,
-              },
-            }}
-          >
-            Log In
-          </Button>
+          <Grid container sx={{ justifyContent: "space-evenly", my: 10 }}>
+            <Grid item>
+              <Button
+                onClick={() => navigate("/signup-employer/personal-details")}
+                variant="contained"
+                sx={{
+                  alignItems: "center",
+                  backgroundColor: palette.palette.primary.main,
+                  ":hover": {
+                    backgroundColor: palette.palette.secondary.main,
+                  },
+                }}
+              >
+                SIGN UP AS EMPLOYER
+              </Button>
+            </Grid>
+            <Grid item>
+              <Button
+                onClick={() => navigate("/signup-employee/personal-details")}
+                variant="contained"
+                sx={{
+                  alignItems: "center",
+                  backgroundColor: palette.palette.primary.main,
+                  ":hover": {
+                    backgroundColor: palette.palette.secondary.main,
+                  },
+                }}
+              >
+                SIGN UP AS EMPLOYEE
+              </Button>
+            </Grid>
+          </Grid>{" "}
           <Typography
             sx={{
               color: palette.palette.primary.main,
               fontSize: 20,
             }}
           >
-            Forgot Password
-          </Typography>
-          <Typography
-            sx={{
-              color: palette.palette.primary.main,
-              fontSize: 20,
-            }}
-          >
-            Don't have an account?{" "}
+            Already have an account?{" "}
             <span
-              onClick={() => navigate("/signup")}
+              onClick={() => navigate("/login")}
               style={{
                 color: palette.palette.primary.main,
                 textDecoration: "underline",
                 cursor: "pointer",
               }}
             >
-              Sign Up
+              Log In
             </span>
           </Typography>
         </Box>
@@ -116,4 +116,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

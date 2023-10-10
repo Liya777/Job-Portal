@@ -1,19 +1,18 @@
-import { Box, Button, Grid, Input, Link, Typography } from "@mui/material";
+import { Box, Button, Grid, Input, TextField, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import palette from "../Utils/theme/palette";
 import LockPersonIcon from "@mui/icons-material/LockPerson";
-import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const CreateCredentials = () => {
   const navigate = useNavigate();
 
   return (
-    <Grid container sx={{ height: "100vh" }}>
+    <Grid
+      container
+      sx={{ height: "75%", alignItems: "center", justifyContent: "center" }}
+    >
       <Grid item lg={6}>
-        <img
-          src={require(`../../Assets/login.webp`)}
-          alt="login"
-          style={{ width: "100%", height: "100%" }}
-        />
+        <img src={require(`../../Assets/credentials.avif`)} alt="credentials" />
       </Grid>
       <Grid
         item
@@ -46,10 +45,10 @@ const Login = () => {
             border: "2px solid",
             borderColor: palette.palette.primary.main,
             borderRadius: 4,
-            height: 400,
             width: 450,
             m: 2,
             p: 4,
+            pb: 0,
           }}
         >
           <Typography
@@ -59,16 +58,20 @@ const Login = () => {
               fontWeight: 500,
             }}
           >
-            LOG IN
+            CREATE CREDENTIALS
           </Typography>
-          <Input
-            placeholder="Username"
-            sx={{
-              width: "100%",
-              my: 5,
-            }}
+          <TextField
+            label="Username"
+            variant="standard"
+            sx={{ width: "100%", my: 5 }}
+            required
           />
-          <Input placeholder="Password" sx={{ width: "100%" }} />
+          <TextField
+            label="Password"
+            variant="standard"
+            sx={{ width: "100%" }}
+            required
+          />
           <Button
             variant="contained"
             size="large"
@@ -82,38 +85,12 @@ const Login = () => {
               },
             }}
           >
-            Log In
+            Create
           </Button>
-          <Typography
-            sx={{
-              color: palette.palette.primary.main,
-              fontSize: 20,
-            }}
-          >
-            Forgot Password
-          </Typography>
-          <Typography
-            sx={{
-              color: palette.palette.primary.main,
-              fontSize: 20,
-            }}
-          >
-            Don't have an account?{" "}
-            <span
-              onClick={() => navigate("/signup")}
-              style={{
-                color: palette.palette.primary.main,
-                textDecoration: "underline",
-                cursor: "pointer",
-              }}
-            >
-              Sign Up
-            </span>
-          </Typography>
         </Box>
       </Grid>
     </Grid>
   );
 };
 
-export default Login;
+export default CreateCredentials;
